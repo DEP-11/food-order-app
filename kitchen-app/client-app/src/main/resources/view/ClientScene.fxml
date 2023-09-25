@@ -53,22 +53,22 @@
       </TableView>
       <ImageView fitHeight="181.0" fitWidth="216.0" layoutX="280.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Desktop/images/R.jpeg" />
+            <Image url="@../Assets.Images/burger.jpeg" />
          </image>
       </ImageView>
       <ImageView fitHeight="157.0" fitWidth="281.0" layoutX="545.0" layoutY="553.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Desktop/images/R%20(1).jpeg" />
+            <Image url="@../Assets.Images/sub.jpeg" />
          </image>
       </ImageView>
       <ImageView fitHeight="160.0" fitWidth="226.0" layoutX="1100.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Desktop/images/R.png" />
+            <Image url="@../Assets.Images/coke.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="166.0" fitWidth="167.0" layoutX="855.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../Desktop/images/OIP.jpeg" />
+            <Image url="@../Assets.Images/pepsi.jpeg" />
          </image>
       </ImageView>
    </children>
