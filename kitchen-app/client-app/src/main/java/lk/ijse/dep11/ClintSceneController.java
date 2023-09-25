@@ -2,6 +2,7 @@ package lk.ijse.dep11;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ClintSceneController {
     public Button btnNewCustomer;
@@ -13,13 +14,23 @@ public class ClintSceneController {
     public Spinner<Integer> spnSub;
     public Spinner<Integer> spnPepsi;
     public Spinner<Integer> spnCoke;
-    public TableView tblOrderDetails;
+    public TableView<CustomerDetails> tblOrderDetails;
 
     public void initialize(){
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+
+
+        tblOrderDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        tblOrderDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblOrderDetails.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("status"));
+
+
+
+
+
 
     }
 
