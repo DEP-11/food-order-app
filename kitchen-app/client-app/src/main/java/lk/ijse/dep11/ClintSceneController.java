@@ -13,13 +13,15 @@ public class ClintSceneController {
     public Spinner<Integer> spnSub;
     public Spinner<Integer> spnPepsi;
     public Spinner<Integer> spnCoke;
-    public TableView tblOrderDetails;
+    public TableView<CustomerDetails> tblOrderDetails;
 
     public void initialize(){
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+
+        
 
     }
 

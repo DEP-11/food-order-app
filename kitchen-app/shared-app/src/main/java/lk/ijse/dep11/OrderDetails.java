@@ -1,3 +1,5 @@
+package lk.ijse.dep11;
+
 public class OrderDetails {
     int burger;
     int submarine;
