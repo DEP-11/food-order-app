@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomerDetails {
 
-    String status;
+
     String id;
     String name;
     String contact;
+    String status;
 
 }

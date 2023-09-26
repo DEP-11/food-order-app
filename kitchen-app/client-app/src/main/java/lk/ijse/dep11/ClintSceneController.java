@@ -1,8 +1,16 @@
 package lk.ijse.dep11;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.List;
 
 public class ClintSceneController {
     public Button btnNewCustomer;
@@ -15,17 +23,29 @@ public class ClintSceneController {
     public Spinner<Integer> spnPepsi;
     public Spinner<Integer> spnCoke;
     public TableView<CustomerDetails> tblOrderDetails;
+    public ObjectOutputStream oos;
 
     public void initialize(){
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnSub.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnCoke.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnPepsi.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
 
 
         tblOrderDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblOrderDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblOrderDetails.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("status"));
+
+
+        try {
+            Socket remoteSocket = new Socket("localhost", 5050);
+            OutputStream os = remoteSocket.getOutputStream();
+            BufferedOutputStream bos = new BufferedOutputStream(os);
+            oos = new ObjectOutputStream(bos);
+            System.out.println("Connected...!");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
 
@@ -36,11 +56,17 @@ public class ClintSceneController {
 
     public void btnNewCustomerOnAction(ActionEvent actionEvent) {
         txtID.setText(getOrderId()+"");
+        txtName.requestFocus();
 
     }
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) {
         if(!isDataValid()) return;
+        List<CustomerDetails> customerDetails = getOrderList();
+        CustomerDetails newCustomer = new CustomerDetails(txtID.getText(), txtName.getText(), txtContactNumber.getText(), "Processing");
+        customerDetails.add(newCustomer);
+
+
     }
 
     private boolean isDataValid(){
@@ -59,6 +85,10 @@ public class ClintSceneController {
 
     private int getOrderId(){
         return 1;
+    }
+
+    private List<CustomerDetails> getOrderList(){
+        return tblOrderDetails.getItems();
     }
 
 
