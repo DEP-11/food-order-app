@@ -25,6 +25,16 @@ public class MainViewController {
         tblOrder.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("pepsi"));
 
 
+        new Thread(this::startServer).start();
+
+
+
+    }
+
+    public void btnCloseOnAction(ActionEvent actionEvent) {
+    }
+
+    public void startServer(){
         try {
             ServerSocket serverSocket = new ServerSocket(5050);
 
@@ -53,11 +63,5 @@ public class MainViewController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-    }
-
-    public void btnCloseOnAction(ActionEvent actionEvent) {
     }
 }

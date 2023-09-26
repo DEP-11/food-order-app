@@ -27,9 +27,9 @@ public class ClintSceneController {
 
     public void initialize(){
         spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnSub.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnCoke.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnPepsi.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
 
 
         tblOrderDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
