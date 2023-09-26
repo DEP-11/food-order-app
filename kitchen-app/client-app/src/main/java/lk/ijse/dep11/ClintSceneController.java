@@ -26,10 +26,10 @@ public class ClintSceneController {
     public ObjectOutputStream oos;
 
     public void initialize(){
-        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnSub.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnCoke.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
-        spnPepsi.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,1));
+        spnBurger.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,0));
+        spnSub.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,0));
+        spnCoke.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,0));
+        spnPepsi.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,0));
 
 
         tblOrderDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -66,6 +66,14 @@ public class ClintSceneController {
         CustomerDetails newCustomer = new CustomerDetails(txtID.getText(), txtName.getText(), txtContactNumber.getText(), "Processing");
         customerDetails.add(newCustomer);
 
+        var newOrder = new OrderDetails(txtID.getText(),spnBurger.getValue(),spnSub.getValue(),spnCoke.getValue(),spnPepsi.getValue());
+        try {
+            oos.writeObject(newOrder);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -83,8 +91,12 @@ public class ClintSceneController {
         return true;
     }
 
-    private int getOrderId(){
-        return 1;
+    private String getOrderId(){
+        if(getOrderList().isEmpty())return String.format("MAC-%03d",1);
+        String orderId = getOrderList().get(getOrderList().size()-1).getId();
+        int newOrderId = Integer.parseInt(orderId.substring(4))+1;
+
+        return String.format("MAC-%03d",newOrderId);
     }
 
     private List<CustomerDetails> getOrderList(){

@@ -15,15 +15,15 @@
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="604.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.ClintSceneController">
    <children>
-      <Label layoutX="338.0" layoutY="16.0" prefHeight="31.0" prefWidth="145.0" text="My Kitchen">
+      <Label alignment="CENTER" layoutX="324.0" layoutY="17.0" prefHeight="31.0" prefWidth="145.0" text="My Kitchen" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="26.0" />
          </font></Label>
-      <Button fx:id="btnNewCustomer" layoutX="579.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnNewCustomerOnAction" style="-fx-background-color: green;" text="New Order ➕" AnchorPane.rightAnchor="75.0">
+      <Button fx:id="btnNewCustomer" layoutX="605.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnNewCustomerOnAction" style="-fx-background-color: green;" text="New Order ➕" AnchorPane.rightAnchor="13.0">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button fx:id="btnPlaceOrder" layoutX="338.0" layoutY="559.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" text="Place Order" AnchorPane.rightAnchor="289.0">
+      <Button fx:id="btnPlaceOrder" layoutX="338.0" layoutY="559.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" text="Place Order" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
          <font>
             <Font size="16.0" />
          </font></Button>
